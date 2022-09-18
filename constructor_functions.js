@@ -9,16 +9,8 @@ function BankAccount(customerName, balance = 0) {
 
   this.withdraw = (amount) => {
     this.balance -= amount;
-  }
+  };
 }
-
-// const ankitAccount = new BankAccount("Ankit", 1000);
-// const johnAccount = new BankAccount("John");
-// ankitAccount.deposit(5000);
-// ankitAccount.withdraw(2000);
-// console.log(ankitAccount);
-
-
 
 // =====================================
 const accounts = [];
@@ -30,19 +22,20 @@ const depositForm = document.querySelector("#depositForm");
 const accountNumber = document.querySelector("#accountNumber");
 const amount = document.querySelector("#amount");
 
-
 accountForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const account = new BankAccount(customerName.value, +balance.value);
-    accounts.push(account);
-    console.log(accounts);
-})
+  e.preventDefault();
+  const account = new BankAccount(customerName.value, +balance.value);
+  accounts.push(account);
+  console.log(accounts);
+});
 
 depositForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const account = accounts.find((account) => account.accountNumber === +accountNumber.value);
-    if(account){
-        account.deposit(+amount.value);
-    }
-    console.log(accounts);
-})
+  e.preventDefault();
+  const account = accounts.find(
+    (account) => account.accountNumber === +accountNumber.value
+  );
+  if (account) {
+    account.deposit(+amount.value);
+  }
+  console.log(accounts);
+});
